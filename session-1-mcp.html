@@ -1053,6 +1053,171 @@ margin-right: 0; }
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<style id="claude-theme-patch">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --brand-accent:#044191;
+  --brand-accent-lt:#eef2fb;
+  --brand-accent-md:#2f5fa8;
+  --brand-ink:#1c1a17;
+  --brand-stone:#fafaf7;
+  --brand-muted:#6b6a66;
+  --brand-border:#e0dcd4;
+  --brand-ochre:#b9791f;
+  --brand-ochre-lt:#fbeed9;
+  --brand-danger:#a13328;
+  --brand-danger-lt:#fbeceb;
+}
+
+/* ---- base type ---- */
+.reveal, body{
+  font-family:"Inter","Nunito Sans",system-ui,-apple-system,sans-serif !important;
+  color:var(--brand-ink);
+}
+.reveal h1,.reveal h2,.reveal h3,.reveal h4{
+  font-family:"Inter",sans-serif !important;
+  font-weight:600;
+  color:var(--brand-accent);
+  letter-spacing:-0.01em;
+}
+.reveal .slides{ text-align:left; }
+.reveal blockquote{
+  font-family:"Lora","Georgia",serif;
+  font-style:italic;
+  border-left:3px solid var(--brand-accent);
+  padding-left:0.9em;
+  color:var(--brand-accent-md);
+}
+.reveal code, .reveal pre, .filename{
+  font-family:"JetBrains Mono","Fira Code",monospace !important;
+}
+.reveal pre{ border-left:3px solid var(--brand-accent); }
+.filename{
+  display:inline-block; background:#f4f2ee; border:1px solid var(--brand-border);
+  border-radius:5px; padding:0.1em 0.5em; font-size:0.85em; color:var(--brand-ink);
+}
+
+/* ---- Your turn ---- */
+.reveal .yourturn{
+  background:var(--brand-accent-lt);
+  border-left:4px solid var(--brand-accent);
+  border-radius:8px;
+  padding:0.8em 1.1em;
+  margin:0.6em 0;
+}
+.reveal .yourturn::before{
+  content:"YOUR TURN";
+  display:block; font-weight:700; font-size:0.72em; letter-spacing:0.08em;
+  color:var(--brand-accent); margin-bottom:0.35em;
+}
+
+/* ---- Claude moment ---- */
+.reveal .claude{
+  background:#f4f0ff;
+  border-left:4px solid #6a4fd6;
+  border-radius:8px;
+  padding:0.8em 1.1em;
+  margin:0.6em 0;
+}
+.reveal .claude::before{
+  content:"CLAUDE MOMENT";
+  display:block; font-weight:700; font-size:0.72em; letter-spacing:0.08em;
+  color:#6a4fd6; margin-bottom:0.35em;
+}
+
+/* ---- Don't / caution ---- */
+.reveal .dont{
+  background:var(--brand-danger-lt);
+  border-left:4px solid var(--brand-danger);
+  border-radius:8px;
+  padding:0.8em 1.1em;
+  margin:0.6em 0;
+}
+.reveal .dont::before{
+  content:"CAUTION";
+  display:block; font-weight:700; font-size:0.72em; letter-spacing:0.08em;
+  color:var(--brand-danger); margin-bottom:0.35em;
+}
+
+/* ---- aside note ---- */
+.reveal .aside-note{
+  font-size:0.75em; color:var(--brand-muted);
+  border-top:1px solid var(--brand-border);
+  padding-top:0.5em; margin-top:0.6em;
+}
+
+/* ---- cards ---- */
+.reveal .cards{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:0.8em; margin:0.6em 0;
+}
+.reveal .cards .card, .reveal .card{
+  background:#fff; border:1px solid var(--brand-border); border-radius:10px;
+  padding:0.9em 1em; box-shadow:0 1px 4px rgba(0,0,0,0.04);
+}
+.reveal .cards .card h4{ margin-top:0; font-size:0.95em; }
+.reveal .card.lead-num{ text-align:center; }
+
+/* ---- pill ---- */
+.pill{
+  display:inline-block; font-size:0.62em; font-weight:700; letter-spacing:0.06em;
+  padding:0.15em 0.6em; border-radius:999px; margin-bottom:0.4em;
+}
+.pill.ochre{ background:var(--brand-ochre-lt); color:var(--brand-ochre); }
+
+/* ---- steps ---- */
+.reveal .steps{ counter-reset:stepnum; }
+.reveal .steps > p{
+  position:relative; padding-left:2.1em; margin:0.55em 0; counter-increment:stepnum;
+}
+.reveal .steps > p::before{
+  content:counter(stepnum);
+  position:absolute; left:0; top:0.05em;
+  width:1.5em; height:1.5em; border-radius:50%;
+  background:var(--brand-accent); color:#fff;
+  font-size:0.7em; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* ---- landing page: hero ---- */
+.hero{ padding:2.2em 0; }
+.hero-kicker{
+  font-size:0.75em; font-weight:700; letter-spacing:0.12em; color:var(--brand-accent);
+}
+.hero-title{ font-size:2.4em; margin:0.2em 0; color:var(--brand-ink); }
+.hero-sub{ font-size:1.1em; color:var(--brand-muted); max-width:42em; }
+
+/* ---- session grid ---- */
+.session-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1em; margin:1.2em 0;
+}
+.session-card{
+  border:1px solid var(--brand-border); border-radius:10px; padding:1.1em 1.2em;
+  background:#fff; transition:box-shadow .15s ease, border-color .15s ease;
+}
+.session-card:hover{ box-shadow:0 4px 16px rgba(0,0,0,0.07); border-color:var(--brand-accent); }
+.sc-num{
+  display:block; font-size:0.72em; font-weight:700; letter-spacing:0.08em; color:var(--brand-accent);
+  margin-bottom:0.3em;
+}
+.sc-link{ font-weight:600; color:var(--brand-accent); text-decoration:none; }
+.sc-link:hover{ text-decoration:underline; }
+
+/* ---- outcomes / groundrules / checklist ---- */
+.outcomes, .groundrules{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:0.8em; margin:1em 0;
+}
+.outcome, .gr{
+  background:var(--brand-accent-lt); border-radius:8px; padding:0.8em 1em;
+}
+.checklist{
+  background:#fff; border:1px solid var(--brand-border); border-radius:8px; padding:0.9em 1.2em;
+}
+</style>
+
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -1148,13 +1313,13 @@ margin-right: 0; }
 <h2>Three flavours of “click to connect”</h2>
 <div class="cards">
 <div class="card">
-<p><span class="pill ochre">EASIEST</span> #### Directory connector Browse Claude’s built-in list, flip a toggle. Gmail, Drive, Slack, and more.</p>
+<p><span class="pill ochre">EASIEST</span> Directory connector Browse Claude’s built-in list, flip a toggle. Gmail, Drive, Slack, and more.</p>
 </div>
 <div class="card">
-<p><span class="pill ochre">ONE CLICK</span> #### Desktop extension Install a packaged local server like a browser extension — no JSON, no terminal.</p>
+<p><span class="pill ochre">ONE CLICK</span> Desktop extension Install a packaged local server like a browser extension — no JSON, no terminal.</p>
 </div>
 <div class="card">
-<p><span class="pill ochre">ANY SERVER</span> #### Paste a URL Point Claude at <em>any</em> remote MCP server by its address. This is the general key.</p>
+<p><span class="pill ochre">ANY SERVER</span> Paste a URL Point Claude at <em>any</em> remote MCP server by its address. This is the general key.</p>
 </div>
 </div>
 </section>
